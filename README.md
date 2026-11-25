@@ -1,8 +1,10 @@
 <div align="center">
   <img width="256" alt="Serial ClipPRO" src="https://github.com/user-attachments/assets/2953e1f4-7822-4cbd-99e9-09bf8a27694a" />
   <p><b><font size="6">Serial Creator Studio</font></b></p>
-
 </div>
+
+[LoginPreview.webm](https://github.com/user-attachments/assets/cc5a6664-3f84-4762-998d-004ffdd7daf4)
+
 
 -
 
