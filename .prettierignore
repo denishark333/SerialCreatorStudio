@@ -1,0 +1,7 @@
+node_modules/
+dist/
+releases/
+backend/data/
+package-lock.json
+backend/package-lock.json
+*.tsbuildinfo

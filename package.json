@@ -1,0 +1,46 @@
+{
+  "name": "serial-dashboard",
+  "private": true,
+  "version": "0.12.4",
+  "type": "module",
+  "scripts": {
+    "dev": "vite --host 127.0.0.1",
+    "build": "tsc -b && vite build",
+    "preview": "vite preview --host 127.0.0.1",
+    "backend:dev": "npm --prefix backend run dev",
+    "backend:test": "npm --prefix backend test",
+    "preview:generate": "node scripts/generate-login-preview.mjs",
+    "test": "node --test \"tests/*.test.mjs\" && node scripts/vitest.mjs run",
+    "test:all": "npm run test && npm run backend:test",
+    "backend:check": "npm --prefix backend run check",
+    "format": "prettier --write \"src/**/*.{ts,tsx}\" \"scripts/**/*.mjs\" \"tests/**/*.mjs\" vite.config.ts \"backend/{src,test,scripts}/**/*.js\"",
+    "format:check": "prettier --check \"src/**/*.{ts,tsx}\" \"scripts/**/*.mjs\" \"tests/**/*.mjs\" vite.config.ts \"backend/{src,test,scripts}/**/*.js\"",
+    "verify": "npm run format:check && npm run build && npm run test:all && npm run backend:check && npm run verify:ui && npm run verify:motion",
+    "verify:ui": "node scripts/verify-ui.mjs",
+    "verify:motion": "node scripts/verify-data-motion.mjs",
+    "test:components": "node scripts/vitest.mjs run"
+  },
+  "dependencies": {
+    "lucide-react": "1.73.0",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "recharts": "3.10.1"
+  },
+  "devDependencies": {
+    "@testing-library/dom": "10.4.2",
+    "@testing-library/react": "16.3.3",
+    "@testing-library/user-event": "14.6.12",
+    "@types/react": "^19.0.0",
+    "@types/react-dom": "^19.0.0",
+    "@vitejs/plugin-react": "6.3.0",
+    "jsdom": "31.0.1",
+    "playwright": "1.65.1",
+    "prettier": "3.10.1",
+    "typescript": "7.0.2",
+    "vite": "8.3.8",
+    "vitest": "5.1.0"
+  },
+  "engines": {
+    "node": ">=22.18"
+  }
+}

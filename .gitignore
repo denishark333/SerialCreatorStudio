@@ -1,0 +1,76 @@
+# Deny new root entries by default. Only application source, tests, tooling and
+# the public README below are eligible for version control.
+/*
+!/.gitignore
+!/.prettierignore
+!/.prettierrc.json
+!/README.md
+!/index.html
+!/package.json
+!/package-lock.json
+!/tsconfig.json
+!/vite.config.ts
+!/assets/
+!/public/
+!/src/
+!/tests/
+!/backend/
+!/scripts/
+
+# Backend: source, tests and generic development configuration only.
+/backend/*
+!/backend/.gitignore
+!/backend/.env.example
+!/backend/package.json
+!/backend/package-lock.json
+!/backend/src/
+!/backend/test/
+!/backend/scripts/
+/backend/scripts/*
+!/backend/scripts/check.js
+
+# Only tooling referenced by the build, tests and preview workflow.
+/scripts/*
+!/scripts/generate-login-preview.mjs
+!/scripts/preview-fixtures.mjs
+!/scripts/preview-fixtures.d.mts
+!/scripts/verify-data-motion.mjs
+!/scripts/verify-ui.mjs
+!/scripts/vitest.mjs
+
+# Internal planning, deployment configuration and the archived old Git history
+# stay on this machine. Never force-add these paths.
+/CHECKLIST.md
+/deploy/
+/docs/
+/backend/README.md
+/backend/docs/
+/.local-only/
+/releases/
+
+# Apply these exclusions inside all otherwise allowed source directories too.
+node_modules/
+dist/
+coverage/
+playwright-report/
+test-results/
+.git/
+.env
+.env.*
+!/backend/.env.example
+*.log
+*.tmp
+*.tsbuildinfo
+*.key
+*.pem
+*.p12
+*.pfx
+*.dump
+*.sql.gz
+*.zip
+*.tar
+*.tar.gz
+*.bak
+*.backup
+nginx*.conf
+*.service
