@@ -1,8 +1,14 @@
-# Serial Creator Studio
+<div align="center">
+  <img width="256" alt="Serial ClipPRO" src="https://github.com/user-attachments/assets/2953e1f4-7822-4cbd-99e9-09bf8a27694a" />
+  <p><b><font size="6">Serial Creator Studio</font></b></p>
+
+</div>
+
+-
 
 Dashboard Web para administrar canais do **YouTube, Twitch e Kick**, reunindo conteúdo, métricas, comunidade e planejamento. Cada usuário entra com uma plataforma, acessa seu próprio estúdio e pode conectar outras contas.
 
-**Acesse: [creatorstudio.serialhealer.com.br](https://creatorstudio.serialhealer.com.br/)**
+**Acesse: [Serial Creator Studio](https://creatorstudio.serialhealer.com.br/)**
 
 A aplicação está disponível diretamente pelo navegador.
 
