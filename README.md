@@ -3,7 +3,7 @@
   <p><b><font size="6">Serial Creator Studio</font></b></p>
 </div>
 
-[LoginPreview.webm](https://github.com/user-attachments/assets/cc5a6664-3f84-4762-998d-004ffdd7daf4)
+[LoginPreview-Simulation.webm](https://github.com/user-attachments/assets/c3133ff3-77f9-4884-81ce-56ab5e92a8f8)
 
 
 -
