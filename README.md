@@ -4,7 +4,7 @@ Dashboard Web para administrar canais do **YouTube, Twitch e Kick**, reunindo co
 
 **Acesse: [creatorstudio.serialhealer.com.br](https://creatorstudio.serialhealer.com.br/)**
 
-A aplicação já está publicada. Não é necessário instalar Node ou executar comandos no PC para utilizá-la pelo navegador.
+A aplicação está disponível diretamente pelo navegador.
 
 ## Funcionalidades
 
@@ -18,98 +18,58 @@ A aplicação já está publicada. Não é necessário instalar Node ou executar
 | Receitas | Dados e estimativas disponíveis, pagamentos e parcerias registrados pelo usuário |
 | Conexões | Vinculação e desconexão de contas e controles de privacidade |
 
-Os dados dependem das permissões concedidas e da disponibilidade nas plataformas. Valores indisponíveis permanecem identificados como ausentes. A prévia do login e os testes usam dados fictícios, separados dos estúdios autenticados.
+Os dados dependem das permissões concedidas e da disponibilidade nas plataformas. Valores indisponíveis permanecem identificados como ausentes.
 
-No YouTube, responder publica a resposta, ocultar retém para revisão, republicar aprova novamente e excluir solicita remoção com confirmação. Heart e Pin abrem o comentário no YouTube para concluir a ação; a integração implementada não grava essas duas ações.
+No YouTube, as respostas e ações de moderação são aplicadas ao canal: **Responder** publica uma resposta, **Ocultar** retém o comentário para revisão, **Republicar** aprova novamente e **Excluir** solicita remoção com confirmação. **Heart e Pin** abrem o comentário no YouTube para concluir a ação; essas duas ações ainda não são executadas diretamente pela Dashboard.
 
-A Twitch inclui eventos recebidos por EventSub e histórico construído pelas coletas. O conector Kick atual não importa VODs. Os relatórios não reproduzem todas as telas dos estúdios oficiais, nem todo o histórico anterior à conexão.
+A Twitch inclui eventos de transmissão recebidos por EventSub e histórico construído a partir das coletas. A integração Kick atual ainda não importa VODs. Os relatórios não reproduzem todas as telas dos estúdios oficiais nem todo o histórico anterior à conexão.
 
-Receitas estimadas e registros manuais são apresentados separadamente; não equivalem a pagamentos confirmados. A curadoria por IA do Planner e o empacotamento Desktop/WebView são evoluções futuras.
+Receitas estimadas e registros manuais são apresentados separadamente; não equivalem a pagamentos confirmados.
+
+A curadoria por IA do Planner e o aplicativo Desktop/WebView são evoluções futuras.
 
 ## Acesso
 
-1. Abra o endereço Web e aceite os Termos de uso e a Política de privacidade.
+1. Abra o [Serial Creator Studio](https://creatorstudio.serialhealer.com.br/) e aceite os Termos de uso e a Política de privacidade.
 2. Entre com Google/YouTube, Twitch ou Kick e autorize o acesso solicitado.
 3. Conecte outras contas em **Conexões** e escolha a plataforma pelo seletor.
 
-Se o ambiente exigir convite, usuários novos precisarão de um código. A união de estúdios previamente separados exige confirmação.
+A união de estúdios previamente separados exige confirmação.
 
-O frontend React/Vite e a API Node são independentes. A interface publicada consome a API em `https://www.serialhealer.com.br/api/v1`. O endereço da interface não precisa ser o mesmo da API.
+## Instalação pelo navegador
 
-O projeto inclui manifesto e service worker para PWA. Isso é separado de um futuro executável Desktop.
+A aplicação possui suporte a **PWA (Progressive Web App)**. Em navegadores compatíveis, a opção de instalar permite abri-la em uma janela própria, com um atalho no dispositivo.
 
-## Desenvolvimento
+O **Web App Manifest** define o nome, os ícones e a apresentação da aplicação instalada. Ele é parte do suporte a PWA, não um aplicativo Desktop/WebView separado. O acesso aos dados dos canais continua dependendo de conexão com a internet.
 
-Requisitos: Node.js **22.18 ou superior** e npm. Os comandos abaixo usam PowerShell no Windows.
+## Tecnologias
 
-Na raiz do projeto:
+**Linguagens**
 
-```powershell
-npm.cmd ci
-npm.cmd run dev
-```
+![TypeScript](https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white)
+![JavaScript](https://img.shields.io/badge/JavaScript-323330?style=for-the-badge&logo=javascript&logoColor=F7DF1E)
 
-Configure `.env.local` na raiz com a **origem** da API, sem acrescentar `/api/v1`. Para um backend local:
+**Interface**
 
-```dotenv
-VITE_API_URL=http://localhost:4000
-```
+![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
+![Vite](https://img.shields.io/badge/Vite-646CFF?style=for-the-badge&logo=vite&logoColor=white)
+![Recharts](https://img.shields.io/badge/Recharts-22B5BF?style=for-the-badge)
 
-Em outro terminal, na pasta `backend`:
+**Backend, dados e autenticação**
 
-```powershell
-npm.cmd ci
-if (!(Test-Path -LiteralPath .env)) { Copy-Item .env.example .env }
-# Preencha o .env com credenciais do seu ambiente de desenvolvimento.
-npm.cmd run dev
-```
+![Node.js](https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=nodedotjs&logoColor=white)
+![PostgreSQL](https://img.shields.io/badge/PostgreSQL-4169E1?style=for-the-badge&logo=postgresql&logoColor=white)
+![OAuth 2.0](https://img.shields.io/badge/OAuth_2.0-2E7D32?style=for-the-badge)
 
-O Vite informa o endereço local do frontend; a API usa `http://localhost:4000` por padrão. Ajuste callbacks OAuth, `DASHBOARD_URL` e `CORS_ORIGINS` para o ambiente escolhido. Preserve qualquer `.env` existente.
+**Integrações**
 
-É possível desenvolver o frontend com uma API remota configurando `VITE_API_URL` com sua origem HTTPS. **Nesse caso, as ações afetam os dados e as contas conectadas àquela API.** Não é necessário iniciar outro backend local.
+![YouTube](https://img.shields.io/badge/YouTube-FF0033?style=for-the-badge&logo=youtube&logoColor=white)
+![Twitch EventSub](https://img.shields.io/badge/Twitch_EventSub-9146FF?style=for-the-badge&logo=twitch&logoColor=white)
+![Kick](https://img.shields.io/badge/Kick-151A21?style=for-the-badge&logo=kick&logoColor=53FC18)
 
-Client Secrets, tokens OAuth e a credencial administrativa pertencem exclusivamente ao backend. Não os inclua em variáveis `VITE_*`, no build ou no repositório. O arquivo `backend/.env.example` contém apenas configuração genérica de desenvolvimento.
+O frontend e a API são independentes. A interface consulta os dados já coletados e usa cache para tornar a navegação mais rápida.
 
-## Arquitetura
-
-- **Frontend:** React, TypeScript, Vite e Recharts, com navegação por hash e cache em memória.
-- **Backend:** Node, autenticação por plataforma, isolamento por estúdio e conectores OAuth.
-- **Dados:** PostgreSQL quando `DATABASE_URL` está definida; fallback JSON para ambientes sem banco.
-- **Sincronização:** fila por estúdio, prioridades, cadências por tipo de dado e coleta incremental.
-
-Abrir uma tela consulta os dados armazenados, sem exigir importação completa. A versão atual trabalha com um único processo escritor e mantém o estado em memória; PostgreSQL não habilita automaticamente múltiplas instâncias.
-
-Eventos EventSub com falha de gravação voltam à fila em memória, com deduplicação. Eventos ainda não persistidos podem ser perdidos numa queda abrupta do processo.
-
-## Verificação
-
-```powershell
-npm.cmd run verify
-```
-
-O comando verifica formatação, build, testes, sintaxe e fluxos no navegador. As verificações usam dados isolados e provedores simulados; não publicam nem moderam comentários de contas reais.
-
-| Comando | Escopo |
-| --- | --- |
-| `npm.cmd test` | Testes unitários do frontend e componentes |
-| `npm.cmd run test:components` | Componentes com Vitest e Testing Library |
-| `npm.cmd run backend:test` | API e integrações simuladas |
-| `npm.cmd run backend:check` | Sintaxe do backend |
-| `npm.cmd run verify:ui` | Interface em navegador com dados simulados |
-| `npm.cmd run verify:motion` | Prévia, contagem numérica e controle de animações |
-| `npm.cmd run format:check` | Formatação sem reescrever arquivos |
-
-As verificações de navegador usam Playwright. Numa máquina nova, instale Chromium com `npx.cmd playwright install chromium`.
-
-## Build
-
-```powershell
-npm.cmd run build
-```
-
-O frontend compilado fica em `dist/`. `VITE_API_URL` é resolvida durante o build; alterar o endereço posteriormente exige recompilar. Frontend e backend são entregas independentes, e um push não realiza publicação automática.
-
-## Estrutura versionada
+## Estrutura do projeto
 
 ```text
 src/             Frontend e testes de componentes
@@ -121,4 +81,4 @@ tests/           Testes unitários do frontend
 scripts/         Ferramentas de verificação e geração da prévia
 ```
 
-Somente código da aplicação, testes, ferramentas necessárias, recursos públicos, exemplos genéricos e este README pertencem ao repositório. Documentação interna, configuração da hospedagem, histórico operacional, credenciais, dados, backups e pacotes de publicação permanecem locais e excluídos pelo `.gitignore`.
+O repositório reúne o código da aplicação, testes, ferramentas e recursos públicos. Credenciais, dados dos usuários, configurações da hospedagem e documentação interna não fazem parte do conteúdo versionado.
