@@ -8,7 +8,7 @@
 
 -
 
-Dashboard Web para administrar canais do **YouTube, Twitch e Kick**, reunindo conteúdo, métricas, comunidade e planejamento. Cada usuário entra com uma plataforma, acessa seu próprio estúdio e pode conectar outras contas.
+Dashboard Web para administrar canais do **YouTube, Twitch e Kick**, reunindo conteúdo, métricas, comunidade, planejamentos e ganhos. Cada usuário entra com uma plataforma, acessa seu próprio estúdio e pode conectar outras contas.
 
 **Acesse: [Serial Creator Studio](https://creatorstudio.serialhealer.com.br/)**
 
